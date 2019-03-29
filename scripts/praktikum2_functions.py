@@ -22,7 +22,45 @@ def closing():
 #######################
 # YOUR FUNCTIONS HERE #
 #######################
+def  myfirst(infor,speedx):
+    for i in (0,infor):
+        vel_msg.linear.x = speedx
+        vel_msg.linear.y = 0.0
+        vel_msg.angular.z = 0.0
+        velocity_publisher.publish(vel_msg)
+        rospy.sleep(0.1)
+    for i in range(0,infor):
+        vel_msg.linear.x = 0.0
+        vel_msg.linear.y = 0
+        vel_msg.angular.z = 0.5
+        velocity_publisher.publish(vel_msg)
+        rospy.sleep(0.1)
 
+def otse(infor, speedx):
+    for i in (0,infor):
+        vel_msg.linear.x = speedx
+        vel_msg.linear.y = 0.0
+        vel_msg.angular.z = 0.0
+        velocity_publisher.publish(vel_msg)
+        rospy.sleep(0.1)
+
+def kulje (infor, speedy):
+    for i in (0,infor):
+        vel_msg.linear.x = 0.0
+        vel_msg.linear.y = speedy
+        vel_msg.angular.z = 0.0
+        velocity_publisher.publish(vel_msg)
+        rospy.sleep(0.1)
+
+def turn (infor, speedz):
+    for i in (0,infor):
+        vel_msg.linear.x = 0.0
+        vel_msg.linear.y = 0.0
+        vel_msg.angular.z = speedz
+        velocity_publisher.publish(vel_msg)
+        rospy.sleep(0.1)
+
+    
 
 ###########################
 # YOUR FUNCTIONS HERE END #
@@ -44,11 +82,8 @@ def move():
         ########################
         # YOUR CODE HERE START #
         ########################
-        vel_msg.linear.x = 0
-        vel_msg.linear.y = 0
-        vel_msg.angular.z = 0
-        velocity_publisher.publish(vel_msg)
-        rospy.sleep(0.1)
+        turn(30,-0.2)
+        kulje(30,0.2)
         ######################
         # YOUR CODE HERE END #
         ######################
